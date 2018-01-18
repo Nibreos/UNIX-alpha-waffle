@@ -1,0 +1,49 @@
+The vi editor is a utility that creates and modifies text files. It is the standard command line text editor included with most Linux distributions. The vi editor uses the following modes:
+
+Command mode is the initial mode vi uses when started. It provides commands that can cut and replace text. It is also the mode from which you access the other vi modes.
+Command line mode is used to load files and to save files after editing them in the file system.
+Edit mode is the mode that vi uses to write and edit text in the file. It has two operation modes:
+Insert mode adds text between the preceding and subsequent text.
+Replace mode overwrites subsequent text.
+The table below lists some of the most common vi commands:
+
+Use	To	Mode
+vi	Start vi. Type the command at the shell prompt.	N/A
+vi [file_name]	Start vi and immediately begin working on the named file (either a new, non-existent file or an existing file). Type the vi command at the shell prompt.	N/A
+Insert key
+i
+s	Enter insert mode from command mode.	Command
+Esc key	Enter command mode from edit mode.	Insert/Replace
+Delete key	Delete text.	Insert/Replace
+Insert key	Toggle between insert and replace mode while in edit mode.	Insert/Replace
+#[line_number]	Go to a specific line in the document while in command mode. For example #94, moves the cursor to line 94.	Command
+dw	Cut a whole word and trailing space.	Command
+de	Cut a whole word but omit the trailing space.	Command
+d$ or D	Cut all text following the cursor to the end of the line.	Command
+dd	Cut a line from the text.	Command
+p	Place text in memory into the document.	Command
+u	Undo the last action.	Command
+O	Open a new line above the current line.	Command
+o	Open a new line below the current line.	Command
+Ctrl+g	Display the file name, the total number of lines in the file, and the cursor position.	Command
+/[term]	Search forward for all instances of a term. Press n to go to the next term and N to go to the previous term.	Command
+?[term]	Search backward for all instances of a term. Press n to go to the previous term and N to go to the next term.	Command
+yy	Copy a line of text into memory.	Command
+a	Append text after the cursor.	Command
+A	Append text after the current line.	Command
+C	Change text from current cursor position to the end of the line.	Command
+cc	Change text of the entire line.	Command
+ZZ	Save current file and exit vi.	Command
+h	Move the cursor one space to the left.	Command
+j	Move the cursor down a line.	Command
+k	Move the cursor up a line.	Command
+l	Move the cursor one space to the right.	Command
+z	Exit without saving.	Command
+:	Enter command line mode from command mode.	Command
+w	Save the current document.	Command line
+w [file_name]	Name and save the file.	Command line
+w![file_name]	Overwrite the file.	Command line
+q	Exit vi. This produces an error if the text was modified.	Command line
+q!	Exit vi without saving.	Command line
+wq or exit	Save the document and exit vi.	Command line
+e!	Reload the file from the last saved version. This discards all edits and reloads the last saved version of the file into vi.	Command line

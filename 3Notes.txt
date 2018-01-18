@@ -1,0 +1,48 @@
+An environment variable is a setting that defines the user's computing environment. Be aware of the following details:
+
+By convention, you should use uppercase characters when defining and referencing variables names, called variable identifiers (e.g., SHELL and EUID).
+Environment environmental variables are initially assigned default values from the shell configuration files.
+You can modify the default values assigned to environment variables to customize the user's computing environment.
+If you modify the default value assigned to an environment variable, that change will apply only to the current session. You must export the modified variable so change applies to all other shell sessions.
+To make changes to environment variables persistent across system reboots, add the change to the appropriate shell configuration file(s).
+You can define non-environment variables at the shell prompt that can be used to store data. These are called user-defined variables. User-defined variables are commonly defined when writing shell scripts.
+The table below lists common environment variables:
+
+Variable	Description
+BASH	The location of the bash executable file.
+SHELL	The user's login shell.
+CPU	The type of CPU.
+DISPLAY	Location where X Windows output goes.
+ENV	The location of the configuration file for the current shell.
+EUID	The ID number of the current user.
+HISTFILE	The file name where past commands are stored.
+HISTSIZE	The number of past commands that HISTFILE stores for the current session.
+HISTFILESIZE	The number of past commands that HISTFILE stores for the multiple sessions.
+HOME	The absolute path of the user's home directory.
+HOST	The name of the computer.
+HOSTNAME	HOSTNAME is identical to HOST, but is only used on certain distributions.
+INFODIR	The path to the computer's information pages.
+LOGNAME	The username of the current user.
+MAIL	The path to the current user's mailbox file.
+MANPATH	The path to the computer's man pages.
+OLDPWD	The directory the user was in prior to switching to the current directory.
+OSTYPE	The type of operating system. Usually, this is Linux.
+PATH	The directory paths used to search for programs and files.
+Use a colon to separate entries in the PATH variable.
+Do not include a period (.) in the PATH variable. A period indicates that the working directory is in the path, and poses a security risk.
+PS1	The characters the shell uses to define what the shell prompt looks like.
+PWD	The path of the current working directory.
+LANG	The language the operating system uses.
+The table below lists the most common environment variable commands:
+
+Use	To	Examples
+echo $[variable]	View the variable's value.	echo $SHELL displays the user's default shell.
+env	Display the values for environment variables applied to child sessions.	
+set	Set shell environment variables. Without options, set displays the set environment variables for the system.	
+unset [variable]	Remove an environment variable.	unset HOMEDIR removes the HOMEDIR variable.
+[VARIABLE]=[value]	Change the value assigned to a variable.
+To append information to an environment variable instead of replacing it, include the current variable in the command. For example, PATH=$PATH:/bin/additionalpath.
+HOMEDIR=/projects gives the HOMEDIR variable a value of /projects.
+export [variable]	Export a variable to make it available to all other shell sessions.	export HOMEDIR makes the HOMEDIR variable available to all other shell sessions.
+
+PATH=$PATH:/bin/special ; export PATH appends a directory to PATH and immediately exports the variable.

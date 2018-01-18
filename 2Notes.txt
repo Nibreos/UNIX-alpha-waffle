@@ -1,0 +1,30 @@
+An alias is a shortcut stored in memory that runs a command on your Linux system. Most distributions include predefined aliases that are created at system startup. However, a custom alias can be defined from the shell prompt. Be aware of the following:
+
+Aliases defined with the alias command are not persistent across reboots.
+To make aliases persistent across reboots, add the alias definitions to /etc/profile or home/user/.bashrc.
+The following table describes the commands that create and remove aliases:
+
+Use	To	Example
+alias	Display the currently defined aliases on the system.	[rtracy@fs5 ~]$ alias
+
+alias egrep='egrep --color=auto'
+
+alias fgrep='fgrep --color=auto'
+
+alias grep='grep --color=auto'
+
+alias l.='ls -d .* --color=auto'
+
+alias ll='ls -l --color=auto'
+
+alias ls='ls --color=auto'
+
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+alias [name='command']	Create a custom alias that runs an existing command. A single alias can be defined to run multiple commands.
+When creating the alias, encapsulate the command(s) with quotation marks or apostrophes.
+alias securebackup='cp ./*.* /dev/st0/*.*;shred -fuvz ./*' creates an alias that copies all files in the current directory to a tape backup device and then shreds the original files.
+
+alias forcelogout="killall /usr/bin/Xorg" creates a shortcut that kills all Xserver processes.
+unalias [name]	Remove an alias.	unalias securebackup removes the alias specified for the securebackup command.
+
+unalias forcelogout deletes the forcelogout alias.
